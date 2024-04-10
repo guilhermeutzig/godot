@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cenk5xx10hbrx"]
+
+[ext_resource type="PackedScene" uid="uid://cp8imcrprvjgy" path="res://resources/overlap/hitbox.tscn" id="1_i5rr2"]
+[ext_resource type="Script" path="res://resources/projectiles/player_dagger.gd" id="2_qgvja"]
+[ext_resource type="Texture2D" uid="uid://bdtelsxcrgomh" path="res://assets/Others/Dungeon Crawler/heroes/knight/weapon_sword_1.png" id="2_xynlc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8nb8"]
+size = Vector2(45, 16)
+
+[node name="PlayerDagger" groups=["Projectile"] instance=ExtResource("1_i5rr2")]
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("2_qgvja")
+SPEED = 400
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(11.5547, 0)
+rotation = 0.785398
+scale = Vector2(2.97624, 2.97624)
+texture = ExtResource("2_xynlc")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(10.5, 0)
+shape = SubResource("RectangleShape2D_j8nb8")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." index="2"]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

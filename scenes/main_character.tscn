@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://85bomjjsuhq0"]
+[gd_scene load_steps=5 format=3 uid="uid://dgqtt0mresrmq"]
 
 [ext_resource type="Texture2D" uid="uid://b1t6hrkpy68k8" path="res://assets/Autoral/hero.png" id="1_7kmkq"]
 [ext_resource type="PackedScene" uid="uid://bw5c5y2yxfuom" path="res://scenes/dash.tscn" id="2_mefee"]
