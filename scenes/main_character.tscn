@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://85bomjjsuhq0"]
+
+[ext_resource type="Texture2D" uid="uid://b1t6hrkpy68k8" path="res://assets/Autoral/hero.png" id="1_7kmkq"]
+[ext_resource type="PackedScene" uid="uid://bw5c5y2yxfuom" path="res://scenes/dash.tscn" id="2_mefee"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ouets"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7kmkq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hg0wi"]
+size = Vector2(38, 76)
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1.91927e-05, 2.67029e-05)
+scale = Vector2(0.365385, 0.361905)
+sprite_frames = SubResource("SpriteFrames_ouets")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.000141144, 2.67029e-05)
+shape = SubResource("RectangleShape2D_hg0wi")
+
+[node name="Dash" parent="." instance=ExtResource("2_mefee")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2, 0)
+zoom = Vector2(1.5, 1.5)
+limit_left = 0
+limit_right = 1920
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.15
+drag_right_margin = 0.15
+drag_bottom_margin = 0.15

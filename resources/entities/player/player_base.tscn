@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3ft6x5af515g"]
+
+[ext_resource type="PackedScene" uid="uid://cchn1rpj7vtob" path="res://resources/entities/entity_base.tscn" id="1_m4xda"]
+[ext_resource type="Script" path="res://resources/entities/player/player_base.gd" id="2_6faun"]
+[ext_resource type="Texture2D" uid="uid://b1t6hrkpy68k8" path="res://assets/Autoral/hero.png" id="3_xp1qd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_smokf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_xp1qd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47472"]
+size = Vector2(68, 138)
+
+[node name="PlayerBase" instance=ExtResource("1_m4xda")]
+position = Vector2(777, 5)
+script = ExtResource("2_6faun")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(-1.90735e-06, 3.8147e-06)
+scale = Vector2(0.653846, 0.653846)
+sprite_frames = SubResource("SpriteFrames_smokf")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_47472")
+
+[node name="Camera2D" type="Camera2D" parent="." index="2"]
+position = Vector2(18, 37)
+zoom = Vector2(1.5, 1.5)
+limit_left = 0
+limit_right = 1920
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.15
+drag_right_margin = 0.15
+drag_bottom_margin = 0.15

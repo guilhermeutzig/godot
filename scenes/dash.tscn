@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw5c5y2yxfuom"]
+
+[sub_resource type="GDScript" id="GDScript_lobuf"]
+
+[node name="Dash" type="Node2D"]
+script = SubResource("GDScript_lobuf")
+
+[node name="Timer" type="Timer" parent="."]
