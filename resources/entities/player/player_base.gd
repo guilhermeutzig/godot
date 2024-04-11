@@ -6,9 +6,13 @@ const JUMP_VELOCITY = -900.0
 
 @export var DAGGER: PackedScene = preload("res://resources/projectiles/player_dagger.tscn")
 
+@onready var melee_hit = $MeleeHit
+@onready var melee_hit_collision = $MeleeHit/CollisionShape2D
+@onready var melee_hit_timer = $AttackTimer
 @onready var projectile_timer = $ProjectileTimer
 @onready var player_animated_sprite = $AnimatedSprite2D
 @onready var dash = $"../Dash"
+@onready var player_base = $"."
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -26,6 +30,12 @@ func throw_dagger():
 		dagger.rotation = dagger_rotation
 		projectile_timer.start()
 
+func attack():
+	melee_hit.visible = true
+	melee_hit_collision.disabled = false
+	melee_hit_timer.start()
+	# melee_hit scripts controls the destroy
+
 func _physics_process(delta):
 	var direction = Input.get_axis("left", "right")
 	var speed = DASH_SPEED if dash.is_dashing() else SPEED
@@ -35,11 +45,14 @@ func _physics_process(delta):
 	# if Input.is_action_just_pressed("jump") and is_on_floor():
 	if Input.is_action_just_pressed("jump"):
 		velocity.y = JUMP_VELOCITY
+		
+	if Input.is_action_just_pressed("primary_attack") and melee_hit_timer.is_stopped():
+		attack()
 	
-	if Input.is_action_just_pressed("action_attack") and projectile_timer.is_stopped():
+	if Input.is_action_just_pressed("secondary_attack") and projectile_timer.is_stopped():
 		throw_dagger()
-	
-	# Handle dash
+		
+		# Handle dash
 	if Input.is_action_just_pressed("dash"):
 		dash.start_dash(DASH_LENGTH)
 	

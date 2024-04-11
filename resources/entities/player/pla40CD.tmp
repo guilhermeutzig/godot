@@ -36,7 +36,6 @@ script = ExtResource("2_6faun")
 DAGGER = ExtResource("3_m2awt")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-texture_filter = 1
 position = Vector2(-1.90735e-06, 3.8147e-06)
 scale = Vector2(0.653846, 0.653846)
 sprite_frames = SubResource("SpriteFrames_smokf")
@@ -80,7 +79,6 @@ monitoring = false
 script = ExtResource("6_if3vf")
 
 [node name="Sprite2D" type="Sprite2D" parent="MeleeHit" index="0"]
-texture_filter = 1
 position = Vector2(49, 4.76837e-07)
 scale = Vector2(3.875, 3.875)
 texture = ExtResource("4_l2kng")
@@ -91,8 +89,6 @@ rotation = 0.872665
 shape = SubResource("CapsuleShape2D_xob6k")
 disabled = true
 
-[connection signal="frame_changed" from="AnimatedSprite2D" to="MeleeHit" method="_on_animated_sprite_2d_frame_changed"]
-[connection signal="visibility_changed" from="AnimatedSprite2D" to="MeleeHit" method="_on_animated_sprite_2d_visibility_changed"]
 [connection signal="timeout" from="AttackTimer" to="MeleeHit" method="_on_attack_timer_timeout"]
 
 [editable path="Hurtbox"]

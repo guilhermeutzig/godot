@@ -24,7 +24,7 @@ height = 64.0
 radius = 29.0
 height = 58.0
 
-[node name="EnemyBase" instance=ExtResource("1_1nbh6")]
+[node name="EnemyBase" groups=["Hit"] instance=ExtResource("1_1nbh6")]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("2_kx0i3")

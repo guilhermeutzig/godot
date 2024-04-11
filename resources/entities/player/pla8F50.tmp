@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://b3ft6x5af515g"]
+[gd_scene load_steps=12 format=3 uid="uid://b3ft6x5af515g"]
 
 [ext_resource type="PackedScene" uid="uid://cchn1rpj7vtob" path="res://resources/entities/entity_base.tscn" id="1_m4xda"]
 [ext_resource type="Script" path="res://resources/entities/player/player_base.gd" id="2_6faun"]
 [ext_resource type="PackedScene" uid="uid://cenk5xx10hbrx" path="res://resources/projectiles/player_dagger.tscn" id="3_m2awt"]
 [ext_resource type="Texture2D" uid="uid://b1t6hrkpy68k8" path="res://assets/Autoral/hero.png" id="3_xp1qd"]
+[ext_resource type="PackedScene" path="res://resources/projectiles/melee_hit.tscn" id="4_gdhe5"]
 [ext_resource type="Texture2D" uid="uid://bdtelsxcrgomh" path="res://assets/Others/Dungeon Crawler/heroes/knight/weapon_sword_1.png" id="4_l2kng"]
 [ext_resource type="Script" path="res://resources/entities/player/melee_hit.gd" id="6_if3vf"]
 
@@ -34,9 +35,9 @@ collision_layer = 10
 collision_mask = 5
 script = ExtResource("2_6faun")
 DAGGER = ExtResource("3_m2awt")
+SWORD = ExtResource("4_gdhe5")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-texture_filter = 1
 position = Vector2(-1.90735e-06, 3.8147e-06)
 scale = Vector2(0.653846, 0.653846)
 sprite_frames = SubResource("SpriteFrames_smokf")
@@ -80,7 +81,6 @@ monitoring = false
 script = ExtResource("6_if3vf")
 
 [node name="Sprite2D" type="Sprite2D" parent="MeleeHit" index="0"]
-texture_filter = 1
 position = Vector2(49, 4.76837e-07)
 scale = Vector2(3.875, 3.875)
 texture = ExtResource("4_l2kng")
@@ -91,8 +91,6 @@ rotation = 0.872665
 shape = SubResource("CapsuleShape2D_xob6k")
 disabled = true
 
-[connection signal="frame_changed" from="AnimatedSprite2D" to="MeleeHit" method="_on_animated_sprite_2d_frame_changed"]
-[connection signal="visibility_changed" from="AnimatedSprite2D" to="MeleeHit" method="_on_animated_sprite_2d_visibility_changed"]
 [connection signal="timeout" from="AttackTimer" to="MeleeHit" method="_on_attack_timer_timeout"]
 
 [editable path="Hurtbox"]

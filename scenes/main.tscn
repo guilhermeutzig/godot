@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://xjl6nop8xbl7"]
+[gd_scene load_steps=10 format=3 uid="uid://xjl6nop8xbl7"]
 
 [ext_resource type="Texture2D" uid="uid://daeot5fw36q00" path="res://assets/Autoral/layers/country-platform-back.png" id="1_my7wi"]
 [ext_resource type="Texture2D" uid="uid://btd8gq0jsj74i" path="res://assets/Autoral/tileset.png" id="2_3wglm"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://73aun4h7e2hk" path="res://resources/entities/enemy/enemy_base.tscn" id="5_h14s2"]
 [ext_resource type="Script" path="res://scripts/dash.gd" id="5_jijgm"]
 [ext_resource type="PackedScene" uid="uid://cchn1rpj7vtob" path="res://resources/entities/entity_base.tscn" id="6_e1pfq"]
-[ext_resource type="PackedScene" uid="uid://cenk5xx10hbrx" path="res://resources/projectiles/player_dagger.tscn" id="6_p2l6q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vtjav"]
 texture = ExtResource("2_3wglm")
@@ -185,6 +184,5 @@ position = Vector2(659, 496)
 
 [node name="PlayerBase" parent="SceneObjects" instance=ExtResource("4_0c788")]
 position = Vector2(153, 507)
-DAGGER = ExtResource("6_p2l6q")
 
 [node name="EntityBase" parent="." instance=ExtResource("6_e1pfq")]
